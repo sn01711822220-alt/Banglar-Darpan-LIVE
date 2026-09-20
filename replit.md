@@ -1,6 +1,6 @@
-# [Project name]
+# Banglar Darpan LIVE
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A cinematic Bengali news IPTV viewer with a curated default lineup, local open-source stream testing, and a browser-local admin control room.
 
 ## Run & Operate
 
@@ -22,23 +22,31 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/banglar-darpan-live/src/App.tsx` — viewer, test-stream lane, local admin route, playlist state, and player source handling.
+- `artifacts/banglar-darpan-live/src/index.css` — broadcast-inspired theme tokens, responsive layout, and component styling.
+- `artifacts/banglar-darpan-live/vite.config.ts` — root web artifact routing and Vite configuration.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The first build is frontend-only so viewers can test links and local files immediately without account setup or a backend.
+- The admin control room uses localStorage for lineup persistence and includes a reset-to-originals action for recovery.
+- The player chooses YouTube iframe, native video, or local object URL rendering based on the submitted source type.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Full-screen TV-style playback for the four exact Bengali news URLs requested in the brief.
+- Open Source Test lane for YouTube, HLS, MP4, and local video sources.
+- Persistent Bengali LIVE watermark, red LIVE badge, custom playback controls, responsive CTV/mobile/desktop layout.
+- `/admin` lineup management with add, edit, delete, and reset-originals workflows.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Use the exact pre-configured news report URLs from the brief; do not replace them with dummy or placeholder videos.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- YouTube availability is controlled by the source video and embed permissions; the app preserves the requested URLs and surfaces the embed state.
+- Local uploads stay in the current browser session and are not uploaded to a server.
 
 ## Pointers
 
